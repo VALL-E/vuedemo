@@ -12,11 +12,15 @@
             {{info.summary}}
           </p>
         </div>
+      <comment :id="id"></comment>
     </div>
+
 </template>
 
 <script type="es6">
   import common from '../kits/common.js';
+  // 导入评论组件
+  import comment from '../subcom/commont.vue';
     export default {
       data(){
         return {
@@ -30,13 +34,16 @@
           this.$http.jsonp(url).then(res=>{
               var data = res.body;
               this.info = data;
-            console.log(data);
+            // console.log(data);
           });
         }
       },
       created(){
         this.id = this.$route.params.id;
-        this.getMoviesInfo()
+        this.getMoviesInfo();
+      },
+      components:{
+        comment
       }
     }
 

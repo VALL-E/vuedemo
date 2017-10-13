@@ -45,6 +45,7 @@
 
 <script type="es6">
   import common from '../kits/common.js';
+
   export default {
     data() {
       return {
@@ -89,21 +90,21 @@
           > div {
             font-size: 0.8rem;
             margin: 0.3rem 0;
+            overflow: hidden;
+            -ms-text-overflow: ellipsis;
+            text-overflow: ellipsis;
+            white-space:nowrap;
             > span:nth-child(1) {
               color: #88888f;
               padding-right: 0.25rem;
             }
             > span:nth-child(n+2) {
               max-width: 10.25rem;
-              overflow: hidden;
-              -ms-text-overflow: ellipsis;
-              text-overflow: ellipsis;
-              white-space:nowrap;
+
               color: #6EBCE9;
             }
           }
         }
-
       }
     }
 
