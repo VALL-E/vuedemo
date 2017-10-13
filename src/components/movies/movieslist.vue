@@ -2,7 +2,7 @@
   <div class="tmpPadding">
     <ul class="mui-table-view" v-for="(item,index) in list" :key="index">
       <li class="mui-table-view-cell mui-media">
-        <router-link to="/news/newsinfo">
+        <router-link v-bind="{to:'/movies/moviesinfo/' + item.id}">
           <h3>
             {{item.title}}
             <span class="movie_year">({{item.year}})</span>
@@ -74,26 +74,26 @@
     > .mui-table-view-cell {
       > a {
         > h3 {
-          font-size: 25px;
+          font-size: 1.25rem;
           span {
             color: #88888F;
           }
         }
         > .mui-media-object {
-          width: 100px;
-          max-width: 100px;
-          height: 150px;
+          width: 5rem;
+          max-width: 5rem;
+          height: 7.5rem;
         }
         > .mui-media-body {
           > div {
-            font-size: 16px;
-            margin: 6px 0;
+            font-size: 0.8rem;
+            margin: 0.3rem 0;
             > span:nth-child(1) {
               color: #88888f;
-              padding-right: 5px;
+              padding-right: 0.25rem;
             }
             > span:nth-child(n+2) {
-              max-width: 205px;
+              max-width: 10.25rem;
               overflow: hidden;
               -ms-text-overflow: ellipsis;
               text-overflow: ellipsis;

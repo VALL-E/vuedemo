@@ -11,6 +11,7 @@ import goodslist from '../components/goods/goodslist.vue';
 import feedback from '../components/feedback/feedback.vue';
 import video from '../components/video/videolist.vue';
 import callme from '../components/callme/callme.vue';
+import moviesinfo from '../components/movies/moviesinfo.vue';
 
 Vue.use(Router);
 
@@ -61,6 +62,10 @@ export default new Router({
     {
       path: '/callme/callme',
       component: callme
+    },
+    {
+      path:'/movies/moviesinfo/:id',
+      component:moviesinfo
     }
   ]
 })

@@ -58,10 +58,10 @@
 
 <style scoped lang="less">
   .mint-swipe {
-    height: 300px;
+    height: 250px;
     .mint-swipe-item {
       width: 100%;
-      max-height: 300px;
+      max-height: 250px;
       background-color: red;
       img{
         display: block;
