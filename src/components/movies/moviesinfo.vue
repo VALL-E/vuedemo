@@ -1,12 +1,18 @@
 <template>
     <div class="tmpPadding">
-<div>aaa</div>
+        详情页
 
     </div>
 </template>
 
 <script type="es6">
-    export default {}
+    export default {
+      data(){
+        return {
+
+        }
+      }
+    }
 
 </script>
 

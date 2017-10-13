@@ -14,8 +14,12 @@ import '../static/mui/css/mui.min.css';
 // 初始化的样式
 import '../static/base.css'
 
+// 导入日期格式化库moment.js
+import moment from 'moment';
+Vue.filter('format',(input,fmtString)=>{
+    return moment(input).format(fmtString);
+});
 Vue.config.productionTip = false;
-
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

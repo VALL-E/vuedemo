@@ -5,7 +5,7 @@ import home from '../components/home/home.vue';
 import setting from '../components/setting/setting.vue';
 import user from '../components/user/user.vue';
 import shopCar from '../components/shopCar/shopCar.vue';
-import newslist from '../components/news/newslist.vue';
+import newslist from '../components/movies/movieslist.vue';
 import photolist from '../components/photo/photolist.vue';
 import goodslist from '../components/goods/goodslist.vue';
 import feedback from '../components/feedback/feedback.vue';
@@ -39,7 +39,7 @@ export default new Router({
       component: shopCar
     },
     {
-      path: '/news/newslist',
+      path: '/movies/movieslist',
       component: newslist
     },
     {

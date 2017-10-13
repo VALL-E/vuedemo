@@ -8,9 +8,9 @@
     <!-- 导航栏 -->
     <div class="mui-content">
       <ul class="mui-table-view mui-grid-view mui-grid-9">
-        <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><router-link to="/news/newslist">
+        <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><router-link to="/movies/movieslist">
           <span class="mui-icon mui-icon-home"></span>
-          <div class="mui-media-body">新闻资讯</div></router-link></li>
+          <div class="mui-media-body">电影资讯</div></router-link></li>
         <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><router-link to="/photo/photolist">
           <span class="mui-icon mui-icon-email"></span>
           <div class="mui-media-body">图片分享</div></router-link></li>
@@ -44,7 +44,7 @@
         this.$http.jsonp(url).then(res=>{
             var data = res.body;
             this.list = data.subjects;
-          console.log(data);
+          //console.log(data);
         });
       }
     },
