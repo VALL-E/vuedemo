@@ -16,6 +16,7 @@
 </template>
 
 <script type="es6">
+  import common from '../kits/common.js';
     export default {
       data(){
         return {
@@ -25,7 +26,7 @@
       },
       methods:{
         getMoviesInfo(){
-          var url = 'https://api.douban.com/v2/movie/subject/' + this.id;
+          var url = common.apidomain + '/v2/movie/subject/' + this.id;
           this.$http.jsonp(url).then(res=>{
               var data = res.body;
               this.info = data;

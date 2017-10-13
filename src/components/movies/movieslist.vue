@@ -44,6 +44,7 @@
 </template>
 
 <script type="es6">
+  import common from '../kits/common.js';
   export default {
     data() {
       return {
@@ -53,7 +54,7 @@
     },
     methods: {
       getMoviesList() {
-        var url = 'https://api.douban.com/v2/movie/in_theaters';
+        var url = common.apidomain + '/v2/movie/in_theaters';
         this.$http.jsonp(url).then(res => {
           var data = res.body;
           this.list = data.subjects;
