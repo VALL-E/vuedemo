@@ -1,3 +1,4 @@
+<script src="../../../../../课堂练习2/vuedemoShangke/src/kits/common.js"></script>
 <template>
   <div class="tmpPadding">
     <div class="postCommont">
@@ -62,7 +63,7 @@
         }
         obj.key = this.msg;
         // console.log(obj.key);
-        data.push(obj);
+        data.unshift(obj);
         // setItem 的两个参数只能是字符串
         localStorage.setItem('评论信息', JSON.stringify(data));
         this.msg = '';

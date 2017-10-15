@@ -23,6 +23,11 @@ export default new Router({
     //   name: 'Hello',
     //   component: HelloWorld
     // }
+    // 默认跳转设置
+    {
+      path:'/',
+      redirect: '/home'
+    },
     {
       path: '/home',
       component: home

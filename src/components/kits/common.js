@@ -1,5 +1,6 @@
 // 管理公共的方法
 // 提取域名的公共部分
 export default {
-  apidomain: 'https://api.douban.com'
+  apidomain: 'https://api.douban.com',
+  apiclass:'http://182.254.146.100:8899'
 }
