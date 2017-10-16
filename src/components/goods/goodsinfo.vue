@@ -35,7 +35,7 @@
         <mt-button type="primary" size="large">图文详情</mt-button>
       </router-link>
       <!-- 商品评论 -->
-      <router-link v-bind="{to:'/goods/goodscomment/' + id}">
+      <router-link to="/goods/goodscomment">
         <mt-button type="danger" size="large">商品评论</mt-button>
       </router-link>
     </div>
@@ -74,7 +74,6 @@
               return;
             }
             this.info = data.message[0];
-            console.log(this.info);
           });
         },
         toshopcar(){

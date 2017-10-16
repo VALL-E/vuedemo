@@ -1,12 +1,18 @@
 <template>
     <div class="tmpPadding">
 
-评论组件
+      <commont></commont>
     </div>
 </template>
 
 <script type="es6">
-    export default {}
+  import commont from '../subcom/commont.vue';
+    export default {
+      components:{
+        commont
+      }
+
+    }
 
 </script>
 

@@ -89,7 +89,7 @@ export default new Router({
       component:photoinfo
     },
     {
-      path:'/goods/goodscomment/:id',
+      path:'/goods/goodscomment',
       component:goodscomment
     },
     {
