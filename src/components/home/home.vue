@@ -1,10 +1,11 @@
 <template>
   <div class="tmpPadding">
-    <mt-swipe :auto="4000">
+    <!--<mt-swipe :auto="4000">
       <mt-swipe-item v-for="(item,index) in list" :key="index">
         <img :src="item.images.large">
       </mt-swipe-item>
-    </mt-swipe>
+    </mt-swipe>-->
+    <slider :imgs="list"></slider>
     <!-- 导航栏 -->
     <div class="mui-content">
       <ul class="mui-table-view mui-grid-view mui-grid-9">
@@ -33,6 +34,8 @@
 
 <script type="es6">
   import common from '../kits/common.js';
+  // 轮播图公共子组件
+  import slider from '../subcom/slider.vue';
   export default {
     data() {
       return {
@@ -45,12 +48,21 @@
         this.$http.jsonp(url).then(res=>{
             var data = res.body;
             this.list = data.subjects;
-          //console.log(data);
+            // 包装豆瓣 api 的数据和 apiclass中的数据结构一致，方便封装轮播子组件
+            this.list = this.list.map(function(item){
+            var obj = {};
+            obj.img = item.images.large;
+            return obj;
+          });
+          //console.log(this.list);
         });
       }
     },
     created(){
       this.getImgs();
+    },
+    components:{
+      slider
     }
   }
 
@@ -58,19 +70,7 @@
 
 
 <style scoped lang="less">
-  .mint-swipe {
-    height: 250px;
-    .mint-swipe-item {
-      width: 100%;
-      max-height: 250px;
-      background-color: red;
-      img{
-        display: block;
-        width: 100%;
-        height: 100%;
-      }
-    }
-  }
+
   .mui-content{
     background-color: #fff;
     >.mui-grid-view.mui-grid-9{
