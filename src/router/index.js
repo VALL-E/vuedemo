@@ -12,6 +12,7 @@ import feedback from '../components/feedback/feedback.vue';
 import video from '../components/video/videolist.vue';
 import callme from '../components/callme/callme.vue';
 import moviesinfo from '../components/movies/moviesinfo.vue';
+import photoinfo from '../components/photo/photoinfo.vue'
 
 Vue.use(Router);
 
@@ -23,10 +24,14 @@ export default new Router({
     //   name: 'Hello',
     //   component: HelloWorld
     // }
-    // 默认跳转设置
+    // 默认跳转设置   一般是 404 页面或者重定向到首页
     {
-      path:'/',
+      path:'/',  // 默认跳转到首页
       redirect: '/home'
+    },
+    {
+      path:'*',  // 对于不存在的页面，可以跳转到首页，也可以是写个 404 页面
+      redirect:'/home'
     },
     {
       path: '/home',
@@ -71,6 +76,10 @@ export default new Router({
     {
       path:'/movies/moviesinfo/:id',
       component:moviesinfo
+    },
+    {
+      path:'/photo/photoinfo/:id',
+      component:photoinfo
     }
   ]
 })

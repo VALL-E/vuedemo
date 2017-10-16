@@ -1,5 +1,7 @@
 <template>
   <div class="tmpPadding">
+    <!-- 页面加载动画 -->
+    <vue-loading v-if="isshow" type="spiningDubbles" color="#d9544e" :size="{ width: '60px', height: '60px' }"></vue-loading>
     <ul class="mui-table-view" v-for="(item,index) in list" :key="index">
       <li class="mui-table-view-cell mui-media">
         <router-link v-bind="{to:'/movies/moviesinfo/' + item.id}">
@@ -50,13 +52,15 @@
     data() {
       return {
         list: [],
-        date: new Date()
+        date: new Date(),
+        isshow:true
       }
     },
     methods: {
       getMoviesList() {
         var url = common.apidomain + '/v2/movie/in_theaters';
         this.$http.jsonp(url).then(res => {
+          this.isshow = false;
           var data = res.body;
           this.list = data.subjects;
 //          console.log(data);

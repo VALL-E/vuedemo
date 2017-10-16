@@ -19,6 +19,14 @@ import moment from 'moment';
 Vue.filter('format',(input,fmtString)=>{
     return moment(input).format(fmtString);
 });
+// 注册加载动画的全局组件
+import vueLoading from 'vue-loading-template';
+Vue.component('vue-loading',vueLoading);
+
+// 图片预览组件
+import VuePreview from 'vue-preview'
+Vue.use(VuePreview);
+
 Vue.config.productionTip = false;
 /* eslint-disable no-new */
 new Vue({

@@ -1,5 +1,7 @@
 <template>
   <div class="tmpPadding">
+    <!-- 页面加载动画 -->
+    <vue-loading v-if="isshow" type="spiningDubbles" color="#d9544e" :size="{ width: '60px', height: '60px' }"></vue-loading>
     <!-- 分类列表 -->
     <div id="catelist">
       <ul v-bind="{style:'width:' + ulWidth + 'px'}">
@@ -9,30 +11,33 @@
     </div>
     <!-- 图片列表 -->
     <div id="photolist">
-
       <ul>
         <li v-for="(item,index) in imgList" :key="index">
-          <img v-lazy="item.img_url">
-          <div>
-            <h3>{{item.title}}</h3>
-            <p v-html="item.zhaiyao"></p>
-          </div>
+          <router-link v-bind="{to:'/photo/photoinfo/' + item.id}">
+            <img v-lazy="item.img_url">
+            <div>
+              <h3>{{item.title}}</h3>
+              <p v-html="item.zhaiyao"></p>
+            </div>
+          </router-link>
         </li>
       </ul>
     </div>
+
   </div>
 </template>
 
 <script type="es6">
   import common from '../kits/common.js';
-  import {Toast} from 'mint-ui';
+  //  import {Toast} from 'mint-ui';// 在common.js中已经集成了Toast方法
 
   export default {
     data() {
       return {
         catelist: [],
         ulWidth: 500,
-        imgList: []
+        imgList: [],
+        isshow:true
       }
     },
     methods: {
@@ -42,7 +47,7 @@
         this.$axios.get(url).then(res => {
           var data = res.data;
           if (data.status != 0) {
-            Toast('数据加载失败');
+            common.Toast('数据加载失败');
             return;
           } else {
             this.catelist = data.message;
@@ -57,6 +62,7 @@
         var cateId = cateId || 0;
         var url = common.apiclass + '/api/getimages/' + cateId;
         this.$axios.get(url).then(res => {
+          this.isshow = false;
           var data = res.data;
           if (data.status != 0) {
             Toast('数据请求失败');
@@ -88,30 +94,32 @@
       }
     }
   }
-  #photolist{
-    >ul{
-      >li{
+
+  #photolist {
+    > ul {
+      > li {
         position: relative;
         margin-bottom: 10px;
-        >div{
-          position: absolute;
-          bottom: 5px;
-          left: 0;
-          background-color: rgba(0,0,0,.2);
-          >h3{
-            color: skyblue;
-            font-size: 16px;
+        > a {
+          > div {
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            background-color: rgba(0, 0, 0, .2);
+            > h3 {
+              color: skyblue;
+              font-size: 16px;
+            }
+            > p {
+              color: #fff;
+              font-size: 12px;
+            }
           }
-          >p{
-            color: #fff;
-            font-size: 12px;
+          > img {
+            width: 100%;
+            height: 300px;
           }
         }
-        >img{
-          width: 100%;
-          height: 300px;
-        }
-
       }
     }
 
