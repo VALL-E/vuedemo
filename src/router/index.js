@@ -13,6 +13,7 @@ import video from '../components/video/videolist.vue';
 import callme from '../components/callme/callme.vue';
 import moviesinfo from '../components/movies/moviesinfo.vue';
 import photoinfo from '../components/photo/photoinfo.vue'
+import goodsinfo from '../components/goods/goodsinfo.vue'
 
 Vue.use(Router);
 
@@ -60,6 +61,10 @@ export default new Router({
     {
       path: '/goods/goodslist',
       component: goodslist
+    },
+    {
+      path:'/goods/goodsinfo/:id',
+      component:goodsinfo
     },
     {
       path: '/feedback/feedback',
