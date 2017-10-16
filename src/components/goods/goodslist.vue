@@ -41,7 +41,7 @@
                 return;
               }
               this.list = data.message;
-            console.log(this.list);
+            // console.log(this.list);
 
           });
         }

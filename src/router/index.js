@@ -12,8 +12,10 @@ import feedback from '../components/feedback/feedback.vue';
 import video from '../components/video/videolist.vue';
 import callme from '../components/callme/callme.vue';
 import moviesinfo from '../components/movies/moviesinfo.vue';
-import photoinfo from '../components/photo/photoinfo.vue'
-import goodsinfo from '../components/goods/goodsinfo.vue'
+import photoinfo from '../components/photo/photoinfo.vue';
+import goodsinfo from '../components/goods/goodsinfo.vue';
+import goodsdesc from '../components/goods/goodsdesc.vue';
+import goodscomment from '../components/goods/goodscomment.vue';
 
 Vue.use(Router);
 
@@ -85,6 +87,14 @@ export default new Router({
     {
       path:'/photo/photoinfo/:id',
       component:photoinfo
+    },
+    {
+      path:'/goods/goodscomment/:id',
+      component:goodscomment
+    },
+    {
+      path:'/goods/goodsdesc/:id',
+      component:goodsdesc
     }
   ]
 })
