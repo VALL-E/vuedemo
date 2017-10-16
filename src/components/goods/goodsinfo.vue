@@ -11,7 +11,7 @@
         <ul>
           <li>市场价<s>￥{{info.market_price}}</s> 销售价<span>￥{{info.sell_price}}</span></li>
           <li class="ballbox">购买数量：
-            <!--<inputnumber v-on:countdata="getcount"></inputnumber>-->
+            <inputNum v-on:dataObj="getcount"></inputNum>
             <!--<div v-if="isShow" class="ball"></div>-->
           </li>
           <li>
@@ -44,13 +44,20 @@
 <script type="es6">
   import common from '../kits/common';
   import slider from '../subcom/slider.vue';
+  import inputNum from '../subcom/inputNum.vue';
+  // 导入公共组件vm
+  import {vm,countStr} from '../kits/vm.js';
+  // 导入本地存储
+  import {setItem,valueObj} from '../kits/localS.js';
+
     export default {
       data(){
         return{
           id:0,
           imgs:[],
           info:{},
-          isshow:true
+          isshow:true,
+          inputNumber:1
         }
       },
       methods:{
@@ -76,8 +83,17 @@
             this.info = data.message[0];
           });
         },
+        getcount(count){
+          this.inputNumber = count;
+        },
         toshopcar(){
-
+          // 当前页面的inputnumbercount数据传递到App.vue组件中，发布订阅者模式
+          // COUNTSTR 是一个常量,类似于子组件传父组件的需要绑定的事件名
+          vm.$emit(countStr,this.inputNumber);
+          // 本地存储
+          valueObj.goodsId = this.id;
+          valueObj.count = this.inputNumber;
+          setItem(valueObj);
         }
       },
       created(){
@@ -87,7 +103,8 @@
 
       },
       components:{
-        slider
+        slider,
+        inputNum
       }
     }
 
